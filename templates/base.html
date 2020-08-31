@@ -5,10 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Quiz App - {{title}} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+
+        } */
+       body {
+           font-family: 'Montserrat', sans-serif;
+       } 
+
+       .container {
+           position: relative;
+           margin: 0 50px;
+       }
+
+       a {
+           text-decoration: none;
+           color: #101010;
+
+       }
+
+       a:hover {
+           color: #8b0347;
+           transition: .5;
+       }
+
+       .text-center {
+           text-align: center;
+       }
+
+       .btn {
+           color: #fff;
+           background: #8b0347;
+           padding: 12px;
+           border-radius: 30%;
+           border: none;
+           font-family: 'Montserrat', sans-serif;
+       }
+    </style>
 </head>
 <body>
+    
     {% include 'navbar.html' %}
     <div class="container">
         {% if messages %}
