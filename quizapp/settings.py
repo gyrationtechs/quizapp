@@ -59,7 +59,7 @@ ROOT_URLCONF = 'quizapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,6 +126,9 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+LOGIN_REDIRECT_URL = 'create-story'
+LOGIN_URL = 'admin-login'
 
 AWS_ACCESS_KEY_ID= config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY= config('AWS_SECRET_ACCESS_KEY')

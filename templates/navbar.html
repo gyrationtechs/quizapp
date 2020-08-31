@@ -1,0 +1,38 @@
+<style>
+    .navbar {
+        padding: 10px;
+        background: #8b0347;
+        color: #fff;
+    }
+
+    ul {
+        list-style-type: none;
+        margin-left: 40px;
+        margin-top: -40px;
+        float: right;
+    }
+
+    li {
+        display: inline;
+        padding: 4px;
+        margin: 0 8px;
+    }
+    li a {
+        text-decoration: none;
+        color: #fff;
+    }
+</style>
+<div class="navbar">
+    <h3>Quiz App</h3>
+    <ul>
+        <li> <a href="{% url 'home-page' %}">Home</a></li>
+        {% if request.user.is_authenticated %}
+        <li> <a href="{% url 'create-story' %}">Add Story</a></li>
+        <li> <a href="#">Create Quiz</a></li>
+        <li> <a href=" {% url 'logout' %} ">Logout</a></li>
+        {% else %}
+        <li> <a href="{% url 'admin-login' %}">Login</a></li>
+        {% endif %}    
+        <li> <a href="#">Take Quiz</a></li>
+    </ul>
+</div>

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Multichoice Application </h2>
+<p>An app that lets users apply for grants by answering questions. 
+    If the users score is above average (75%) the user passes, 
+    otherwise the user failed the test</p>
+    <hr><br>
+<h2>Stories</h2>
+{% for object in objects %}
+<h3> <a href="{% url 'story-detail' object.id %}"> {{object.title}}</a> </h3>
+<!-- <p> {{object.co}} </p> -->
+{% endfor %}
+{% endblock %}
