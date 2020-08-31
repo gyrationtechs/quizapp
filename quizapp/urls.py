@@ -18,7 +18,9 @@ from django.urls import path, include
 from questions.views import (home_view, 
     AdminLoginView,  
     StoryCreateView,
-    StoryDetailView
+    StoryDetailView,
+    StoryUpdateView,
+    StoryDeleteView
 )
 from django.contrib.auth.views import LogoutView, LoginView
 
@@ -27,6 +29,8 @@ urlpatterns = [
     path('', home_view, name='home-page'),
     path('create/', StoryCreateView.as_view(), name='create-story'),
     path('story/<int:pk>', StoryDetailView.as_view(), name='story-detail'),
+    path('story/<int:pk>/update/', StoryUpdateView.as_view(), name='story-update'),
+    path('story/<int:pk>/delete/', StoryDeleteView.as_view(), name='story-delete'),
     path('login/', AdminLoginView.as_view(template_name='questions/login.html'), name='admin-login'),
     path('logout/', LogoutView.as_view(template_name='questions/logout.html'), name='logout'),
 ]

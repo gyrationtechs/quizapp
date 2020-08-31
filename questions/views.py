@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Story
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 def home_view(request, *args, **kwargs):
     obj = Story.objects.all()
@@ -24,6 +25,13 @@ class AdminLoginView(LoginView):
 class StoryDetailView(DetailView):
     model = Story
 
-class StoryCreateView(CreateView):
+class StoryCreateView(LoginRequiredMixin, CreateView):
     model = Story
     fields = ['title', 'content', 'instruction']
+
+class StoryUpdateView(LoginRequiredMixin, UpdateView):
+    model = Story
+    fields = ['title', 'content', 'instruction']
+
+class StoryDeleteView(LoginRequiredMixin, DeleteView):
+    model = Story

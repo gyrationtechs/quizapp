@@ -3,6 +3,7 @@
 <h2>{{object.title}}</h2>
 <p>{{object.content}}</p>
 <p><em>Instructions: {{object.instruction}}</em></p>
+<span style="float: right;"><a href=" {% url 'story-update' object.id %} ">Update Story</a> | <a href=" {% url 'story-delete' object.id %} ">Delete Story</a></span>
 <br><hr>
 <button class="btn text-center">Take Quiz</button>
 {% endblock %}
